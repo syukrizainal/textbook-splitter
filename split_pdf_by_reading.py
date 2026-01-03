@@ -307,10 +307,11 @@ def main():
     """Main function"""
     import sys
 
-    pdf_path = r"C:\Users\Dell\Documents\CFA L2\CFA L2 2025 CBOK& Schweser\Book 1.pdf"
-
+    # Get PDF path from command line or prompt user
     if len(sys.argv) > 1:
         pdf_path = sys.argv[1]
+    else:
+        pdf_path = input("Enter path to PDF file: ").strip()
 
     split_pdf_by_readings(pdf_path)
 

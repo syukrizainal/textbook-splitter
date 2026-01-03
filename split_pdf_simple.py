@@ -117,7 +117,13 @@ def split_pdf_by_pages(pdf_path, pages_per_reading, output_dir=None):
 
 def main():
     """Main function"""
-    pdf_path = r"C:\Users\Dell\Documents\CFA L2\CFA L2 2025 CBOK& Schweser\Book 1.pdf"
+    import sys
+
+    # Get PDF path from command line or prompt user
+    if len(sys.argv) > 1:
+        pdf_path = sys.argv[1]
+    else:
+        pdf_path = input("Enter path to PDF file: ").strip()
 
     # Get total pages first
     pdf_reader = pypdf.PdfReader(pdf_path)
@@ -126,7 +132,7 @@ def main():
     print("=" * 60)
     print("CFA Level 2 PDF Splitter")
     print("=" * 60)
-    print(f"PDF: Book 1.pdf")
+    print(f"PDF: {Path(pdf_path).name}")
     print(f"Total pages: {total_pages}")
     print()
     print("Choose split method:")
